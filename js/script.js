@@ -33,8 +33,16 @@ var app = new Vue({
       .then((response)=>{
         const searchResults = response.data.results;
         this.movies = searchResults;
-
-        this.userQuery="";
+        this.movieRate();
+      });
+      this.userQuery="";
+    },
+    movieRate: function() {
+      this.movies.forEach((item) => {
+        const voteRound = (item.vote_average / 2);
+        let vote = Math.ceil(voteRound);
+        item.vote_average = vote;
+        console.log(item.vote_average);
       });
     }
   }

@@ -47,7 +47,7 @@ header {
 }
 
 header .logo {
-  width: 120px;
+  width: 150px;
   border: 0;
 }
 
@@ -125,5 +125,5 @@ main {
 }
 
 .rate-star {
-  color: #FFFF00;
+  margin: 0 1px;
 }

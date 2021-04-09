@@ -48,13 +48,17 @@
       <main>
         <!-- movies -->
         <div class="movies-row">
-          <div class="movie" v-for="movie in movies" v-if="movie.poster_path != null">
+          <div class="movie" v-for="(movie, i) in movies" v-if="movie.poster_path != null">
             <img class="movie__image" :src=" 'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="movie image">
             <div class="movie__info">
               <p class="movie__title"><strong>Titolo:</strong> <span>{{movie.title}}</span></p>
               <p class="movie__original"><strong>Titolo originale:</strong> <span>{{movie.original_title}}</span></p>
               <p class="movie__language" v-show="movie.original_language != ''"><strong>Original Language:</strong> <span>{{movie.original_language}}</span></p>
-              <div class="movie__rate"><strong>Voto:</strong> <i class="fas fa-star rate-star"></i></div>
+              <div class="movie__rate">
+                <strong>Voto:</strong>
+                <span v-for="i in movie.vote_average"><i class="fas fa-star rate-star"></i></span>
+                <span v-for="i in ( 5 - movie.vote_average)"><i class="far fa-star rate-star"></i></span>
+              </div>
             </div>
           </div>
         </div>
