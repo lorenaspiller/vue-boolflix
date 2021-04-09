@@ -49,7 +49,7 @@
       <main>
         <!-- movies -->
         <div class="movies-row">
-          <div class="movie" v-for="movie in movies">
+          <div class="movie" v-for="movie in movies" v-if="movie.poster_path != null">
             <img class="movie__image" :src=" 'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="movie image">
           </div>
         </div>
