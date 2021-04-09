@@ -28,19 +28,33 @@
 
     <div id="app" class="container">
       <header>
-        <img class="logo" src="https://fontmeme.com/permalink/210409/0a43aa36584f2895324a0006b42b5d1a.png" alt="boolflix-font">
-        <label for="select-movie">
-          <input type="text" id="select-movie">
-          <button id="search"><i class="fas fa-search"></i></button>
-        </label>
+        <!-- logo -->
+        <div class="header__logo">
+          <img class="logo" src="https://fontmeme.com/permalink/210409/0a43aa36584f2895324a0006b42b5d1a.png" alt="boolflix-font">
+        </div>
+        <!-- /logo -->
+
+        <!-- search section -->
+        <div class="header__search">
+          <label for="select-movie">
+            <input type="text" id="select-movie" v-model="userQuery" @keydown.13="moviesSearch">
+            <button id="search"><i class="fas fa-search" @click="moviesSearch"></i></button>
+          </label>
+        </div>
+        <!-- /search section -->
+
 
       </header>
 
       <main>
-
+        <!-- movies -->
+        <div class="movies-row">
+          <div class="movie" v-for="movie in movies">
+            <img class="movie__image" :src=" 'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="movie image">
+          </div>
         </div>
+        <!-- movies -->
       </main>
-
     </div>
 
 
