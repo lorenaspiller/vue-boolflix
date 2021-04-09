@@ -17,12 +17,13 @@ var app = new Vue({
   data: {
     userQuery: "",
     movies: [],
+    myApiKey: "3124987f708e83e904b51eb8a20737a0",
   },
   methods: {
     moviesSearch: function() {
       axios.get('https://api.themoviedb.org/3/search/movie', {
         params: {
-          api_key: "3124987f708e83e904b51eb8a20737a0",
+          api_key: this.myApiKey,
           query: this.userQuery,
           page: 1,
           include_adult: false,

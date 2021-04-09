@@ -36,14 +36,12 @@
 
         <!-- search section -->
         <div class="header__search">
-          <label for="select-movie">
-            <input type="text" id="select-movie" v-model="userQuery" @keydown.13="moviesSearch">
-            <button id="search"><i class="fas fa-search" @click="moviesSearch"></i></button>
+          <label for="select-movie-input">
+            <button id="search" class="btn"><i class="fas fa-search" @click="moviesSearch"></i></button>
+            <input type="text" id="select-movie-input" v-model="userQuery" @keydown.13="moviesSearch" class="search-input" placeholder="Search a movie">
           </label>
         </div>
         <!-- /search section -->
-
-
       </header>
 
       <main>
@@ -51,6 +49,12 @@
         <div class="movies-row">
           <div class="movie" v-for="movie in movies" v-if="movie.poster_path != null">
             <img class="movie__image" :src=" 'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="movie image">
+            <div class="movie__info">
+              <p class="movie__title"><strong>Titolo:</strong> <span>{{movie.title}}</span></p>
+              <p class="movie__original"><strong>Titolo originale:</strong> <span>{{movie.original_title}}</span></p>
+              <div class="movie__rate"><strong>Voto:</strong> <i class="fas fa-star rate-star"></i></div>
+              <p class="movie__overview" v-show="movie.overview != ''"><strong>Overview:</strong> <span>{{movie.overview}}</span></p>
+            </div>
           </div>
         </div>
         <!-- movies -->
