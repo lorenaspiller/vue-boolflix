@@ -52,8 +52,8 @@
             <div class="movie__info">
               <p class="movie__title"><strong>Titolo:</strong> <span>{{movie.title}}</span></p>
               <p class="movie__original"><strong>Titolo originale:</strong> <span>{{movie.original_title}}</span></p>
+              <p class="movie__language" v-show="movie.original_language != ''"><strong>Original Language:</strong> <span>{{movie.original_language}}</span></p>
               <div class="movie__rate"><strong>Voto:</strong> <i class="fas fa-star rate-star"></i></div>
-              <p class="movie__overview" v-show="movie.overview != ''"><strong>Overview:</strong> <span>{{movie.overview}}</span></p>
             </div>
           </div>
         </div>
