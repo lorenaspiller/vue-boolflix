@@ -128,6 +128,15 @@ main {
   margin-bottom: 10px;
 }
 
+.movie__info img.language-img,
+.movie__language {
+  vertical-align: middle;
+}
+
+.movie__language > strong {
+  margin-right: 5px;
+}
+
 .rate-star {
   margin: 0 1px;
 }
