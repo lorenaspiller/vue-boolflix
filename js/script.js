@@ -55,12 +55,13 @@ var app = new Vue({
         this.movies = response[0].data.results;
         this.tvSeries = response[1].data.results;
         this.moviesAndTv = [...this.movies, ...this.tvSeries];
-        this.movieRate();
+        this.movieRate(this.movies);
+        this.movieRate(this.tvSeries);
       });
       this.userQuery="";
     },
-    movieRate: function() {
-      this.moviesAndTv.forEach((item) => {
+    movieRate: function(array) {
+      array.forEach((item) => {
         const voteRound = (item.vote_average / 2);
         let vote = Math.ceil(voteRound);
         item.vote_average = vote;
