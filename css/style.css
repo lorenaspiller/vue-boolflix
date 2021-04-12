@@ -16,6 +16,10 @@ p {
   font-size: 14px;
 }
 
+h2 {
+  font-size: 30px;
+}
+
 /* mix */
 .btn {
   border: 0;
@@ -126,4 +130,10 @@ main {
 
 .rate-star {
   margin: 0 1px;
+}
+
+.row-title {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
 }
