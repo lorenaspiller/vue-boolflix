@@ -50,12 +50,13 @@
         <section class="search-smt" v-show="movies.length == 0 && tvSeries.length == 0">
           <h2>Search a movie or a TV serie!</h2>
         </section>
+
         <!-- movies -->
         <section class="boxes-row" v-show="movies.length">
           <div class="row-title">
             <h2>MOVIES</h2>
           </div>
-          <div class="box" v-for="(movie, i) in movies">
+          <div class="box box-animation" v-for="(movie, i) in movies">
             <ul class="list-none">
               <li class="box__image"><img :src="movie.poster_path == null ? imgNotAvailable : imagePath + movie.poster_path" :alt="movie.title"></li>
               <li class="info-container">
@@ -72,13 +73,12 @@
         </section>
         <!-- movies -->
 
-
         <!-- tv series -->
         <section class="boxes-row" v-show="tvSeries.length">
           <div class="row-title">
             <h2>TV SERIES</h2>
           </div>
-          <div class="box" v-for="(tv, i) in tvSeries">
+          <div class="box box-animation" v-for="(tv, i) in tvSeries">
             <ul class="list-none">
               <li class="box__image"><img :src="tv.poster_path == null ? imgNotAvailable : imagePath + tv.poster_path" :alt="tv.name"></li>
               <li class="info-container">

@@ -18,6 +18,7 @@ p {
 
 h2 {
   font-size: 30px;
+  color: #E50914;
 }
 
 /* mix */
@@ -89,6 +90,7 @@ header .logo {
 
 main {
   padding-top: 80px;
+  padding-left: 90px;
 }
 
 .search-smt {
@@ -99,7 +101,8 @@ main {
 
 .boxes-row {
   display: flex;
-  justify-content: center;
+  text-align: center;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
   padding: 50px;
@@ -110,8 +113,14 @@ main {
   height: 400px;
   margin: 20px 20px 0 0px;
   cursor: pointer;
-  perspective: 1000px;
+  box-shadow: 12px 12px 8px 1px rgba(0, 0, 0, .2);
 }
+
+.box-animation:hover {
+  transition: 1s;
+  transform: scale(1.1);
+}
+
 
 .box ul,
 .box .box__image,
