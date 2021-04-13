@@ -22,6 +22,8 @@ var app = new Vue({
   el: '#app',
   data: {
     userQuery: "",
+    imagePath: 'https://image.tmdb.org/t/p/original',
+    imgNotAvailable: "img/img-not-available.jpg",
     movies: [],
     tvSeries: [],
     moviesAndTv: [],

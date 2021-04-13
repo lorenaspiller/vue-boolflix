@@ -47,48 +47,47 @@
 
       <main>
         <!-- movies -->
-        <div class="movies-row" v-show="movies.length">
+        <div class="boxes-row" v-show="movies.length">
           <div class="row-title">
             <h2>MOVIES</h2>
           </div>
-          <div class="movie" v-for="(movie, i) in movies" v-if="movie.poster_path != null">
-            <img class="movie__image" :src=" 'https://image.tmdb.org/t/p/original' + movie.poster_path" :alt="movie.title">
-            <div class="movie__info">
-              <p class="movie__title"><strong>Titolo:</strong> <span>{{movie.title || movie.name}}</span></p>
-              <p class="movie__original"><strong>Titolo originale:</strong> <span>{{movie.original_title || movie.original_name}}</span></p>
-              <p class="movie__language" v-if="movie.original_language == 'en' ? movie.original_language = 'gb' : movie.original_language == 'ja'? movie.original_language = 'jp' : movie.original_language"><strong>Original Language:</strong> <span><img class="language-img" :src=" 'https://flagcdn.com/32x24/' + movie.original_language + '.png'" :alt="movie.original_language"></span></p>
-              <div class="movie__rate">
-                <strong>Voto:</strong>
-                <span v-for="i in movie.vote_average"><i class="fas fa-star rate-star"></i></span>
-                <span v-for="i in (5 - movie.vote_average)"><i class="far fa-star rate-star"></i></span>
-              </div>
-            </div>
+          <div class="box" v-for="(movie, i) in movies">
+            <ul class="list-none">
+              <li class="box__image"><img :src="movie.poster_path == null ? imgNotAvailable : imagePath + movie.poster_path" :alt="movie.title"></li>
+              <li class="info-container">
+                <ul class="box__info list-none">
+                  <li><p class="box__title"><strong>Titolo:</strong> <span>{{movie.title}}</span></p></li>
+                  <li><p class="box__original"><strong>Titolo originale:</strong> <span>{{movie.original_title}}</span></p></li>
+                  <li><p class="movie__language" v-if="movie.original_language == 'en' ? movie.original_language = 'gb' : movie.original_language == 'ja'? movie.original_language = 'jp' : movie.original_language"><strong>Linguaggio originale:</strong> <span><img class="language-img" :src=" 'https://flagcdn.com/32x24/' + movie.original_language + '.png'" :alt="movie.original_language"></span></p></li>
+                  <li class="box__rate"><strong>Voto:</strong> <span v-for="i in movie.vote_average"><i class="fas fa-star rate-star"></i></span><span v-for="i in (5 - movie.vote_average)"><i class="far fa-star rate-star"></i></span></li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
         <!-- movies -->
 
+
         <!-- tv series -->
-        <div class="movies-row" v-show="tvSeries.length">
+        <div class="boxes-row" v-show="tvSeries.length">
           <div class="row-title">
             <h2>TV SERIES</h2>
           </div>
-          <div class="movie" v-for="(movie, i) in tvSeries" v-if="movie.poster_path != null">
-            <img class="movie__image" :src=" 'https://image.tmdb.org/t/p/original' + movie.poster_path" :alt="movie.title || movie.name">
-            <div class="movie__info">
-              <p class="movie__title"><strong>Titolo:</strong> <span>{{movie.title || movie.name}}</span></p>
-              <p class="movie__original"><strong>Titolo originale:</strong> <span>{{movie.original_title || movie.original_name}}</span></p>
-              <p class="movie__language" v-if="movie.original_language == 'en' ? movie.original_language = 'gb' : movie.original_language == 'ja'? movie.original_language = 'jp' : movie.original_language"><strong>Original Language:</strong> <span><img :src=" 'https://flagcdn.com/32x24/' + movie.original_language + '.png'" :alt="movie.original_language"></span></span></p>
-              <div class="movie__rate">
-                <strong>Voto:</strong>
-                <span v-for="i in movie.vote_average"><i class="fas fa-star rate-star"></i></span>
-                <span v-for="i in (5 - movie.vote_average)"><i class="far fa-star rate-star"></i></span>
-              </div>
-            </div>
+          <div class="box" v-for="(tv, i) in tvSeries">
+            <ul class="list-none">
+              <li class="box__image"><img :src="tv.poster_path == null ? imgNotAvailable : imagePath + tv.poster_path" :alt="tv.name"></li>
+              <li class="info-container">
+                <ul class="box__info list-none">
+                  <li><p class="box__title"><strong>Titolo:</strong> <span>{{tv.name}}</span></p></li>
+                  <li><p class="box__original"><strong>Titolo originale:</strong> <span>{{tv.original_name}}</span></p></li>
+                  <li><p class="movie__language" v-if="tv.original_language == 'en' ? tv.original_language = 'gb' : tv.original_language == 'ja'? tv.original_language = 'jp' : tv.original_language"><strong>Linguaggio originale:</strong> <span><img class="language-img" :src=" 'https://flagcdn.com/32x24/' + tv.original_language + '.png'" :alt="tv.original_language"></span></p></li>
+                  <li class="box__rate"><strong>Voto:</strong> <span v-for="i in tv.vote_average"><i class="fas fa-star rate-star"></i></span><span v-for="i in (5 - tv.vote_average)"><i class="far fa-star rate-star"></i></span></li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
         <!-- tv series -->
-
-
       </main>
     </div>
 
