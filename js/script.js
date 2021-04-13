@@ -91,7 +91,7 @@ var app = new Vue({
     },
     filterRate: function(mergedArray, newArray) {
       mergedArray.forEach((item, i) => {
-        if (item.vote_average > 3) {
+        if (item.vote_average > 4) {
           newArray.push(item);
         }
       });
