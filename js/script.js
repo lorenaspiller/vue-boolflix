@@ -44,6 +44,7 @@ var app = new Vue({
     myApiKey: "3124987f708e83e904b51eb8a20737a0",
     apiLanguage: [ {italian: "it-IT"}, {english: "en-EN"}],
     baseUrl: "https://api.themoviedb.org/3/search/",
+    genreString: ['movie', 'tv serie'],
   },
   methods: {
     moviesSearch: function() {
@@ -75,6 +76,8 @@ var app = new Vue({
         this.movieRate(this.movies);
         this.movieRate(this.tvSeries);
         this.filterRate(this.moviesAndTv, this.filteredRate);
+        this.putGenre(this.movies, this.genreString[0]);
+        this.putGenre(this.tvSeries, this.genreString[1]);
       })
       .catch(e => {
         console.log("oh, no! There's an error: " + e);
@@ -94,6 +97,12 @@ var app = new Vue({
         if (item.vote_average > 4) {
           newArray.push(item);
         }
+      });
+    },
+    putGenre: function(array, genre) {
+      array.forEach((item, i) => {
+        item['type'] = genre;
+        array.push(item);
       });
     }
   }
