@@ -61,8 +61,8 @@
               <li class="box__image"><img :src="movie.poster_path == null ? imgNotAvailable : imagePath + movie.poster_path" :alt="movie.title"></li>
               <li class="info-container">
                 <ul class="box__info list-none">
-                  <li><p class="box__title"><strong>Titolo:</strong> <span>{{movie.title}}</span></p></li>
-                  <li><p class="box__original"><strong>Titolo originale:</strong> <span>{{movie.original_title}}</span></p></li>
+                  <li><p class="box__title"><strong>Titolo:</strong> <span>{{movie.title || movie.name}}</span></p></li>
+                  <li><p class="box__original"><strong>Titolo originale:</strong> <span>{{movie.original_title || movie.original_name}}</span></p></li>
                   <li><p><strong>Genere:</strong> {{movie.type}}</p></li>
                   <li><p class="box__language" v-if="movie.original_language == 'en' ? movie.original_language = 'gb' : movie.original_language == 'ja'? movie.original_language = 'jp' : movie.original_language == 'ko'? movie.original_language = 'kr' : movie.original_language"><strong>Linguaggio originale:</strong> <span><img class="language-img" :src=" 'https://flagcdn.com/32x24/' + movie.original_language + '.png'" :alt="movie.original_language"></span></p></li>
                   <li class="box__rate"><strong>Voto:</strong> <span v-for="i in movie.vote_average"><i class="fas fa-star rate-star"></i></span><span v-for="i in (5 - movie.vote_average)"><i class="far fa-star rate-star"></i></span></li>
