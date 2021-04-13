@@ -20,6 +20,7 @@ h2 {
   font-size: 30px;
   color: #E50914;
 }
+/* /typo */
 
 /* mix */
 .btn {
@@ -32,6 +33,30 @@ h2 {
 .list-none {
   list-style: none;
 }
+/* /mix */
+
+/* custom scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* /custom scrollbar */
 
 .container {
   min-height: 100vh;
@@ -121,7 +146,6 @@ main {
   transform: scale(1.1);
 }
 
-
 .box ul,
 .box .box__image,
 .box .info-container {
@@ -137,6 +161,7 @@ main {
 .box .box__info {
   display: none;
   padding: 10px;
+  overflow-y: auto;
 }
 
 .box:hover .box__info{
@@ -181,9 +206,5 @@ main {
 }
 
 .box__info .box__overview {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 7;
+  overflow-y: auto;
 }

@@ -63,7 +63,7 @@
                 <ul class="box__info list-none">
                   <li><p class="box__title"><strong>Titolo:</strong> <span>{{movie.title}}</span></p></li>
                   <li><p class="box__original"><strong>Titolo originale:</strong> <span>{{movie.original_title}}</span></p></li>
-                  <li><p class="box__language" v-if="movie.original_language == 'en' ? movie.original_language = 'gb' : movie.original_language == 'ja'? movie.original_language = 'jp' : movie.original_language"><strong>Linguaggio originale:</strong> <span><img class="language-img" :src=" 'https://flagcdn.com/32x24/' + movie.original_language + '.png'" :alt="movie.original_language"></span></p></li>
+                  <li><p class="box__language" v-if="movie.original_language == 'en' ? movie.original_language = 'gb' : movie.original_language == 'ja'? movie.original_language = 'jp' : movie.original_language == 'ko'? movie.original_language = 'kr' : movie.original_language"><strong>Linguaggio originale:</strong> <span><img class="language-img" :src=" 'https://flagcdn.com/32x24/' + movie.original_language + '.png'" :alt="movie.original_language"></span></p></li>
                   <li class="box__rate"><strong>Voto:</strong> <span v-for="i in movie.vote_average"><i class="fas fa-star rate-star"></i></span><span v-for="i in (5 - movie.vote_average)"><i class="far fa-star rate-star"></i></span></li>
                   <li v-if="movie.overview"><p class="box__overview"><strong>Overview:</strong> {{movie.overview}}</p></li>
                 </ul>
@@ -85,7 +85,7 @@
                 <ul class="box__info list-none">
                   <li><p class="box__title"><strong>Titolo:</strong> <span>{{tv.name}}</span></p></li>
                   <li><p class="box__original"><strong>Titolo originale:</strong> <span>{{tv.original_name}}</span></p></li>
-                  <li><p class="box__language" v-if="tv.original_language == 'en' ? tv.original_language = 'gb' : tv.original_language == 'ja'? tv.original_language = 'jp' : tv.original_language"><strong>Linguaggio originale:</strong> <span><img class="language-img" :src=" 'https://flagcdn.com/32x24/' + tv.original_language + '.png'" :alt="tv.original_language"></span></p></li>
+                  <li><p class="box__language" v-if="tv.original_language == 'en' ? tv.original_language = 'gb' : tv.original_language == 'ja'? tv.original_language = 'jp' : tv.original_language == 'ko'? tv.original_language = 'kr' : tv.original_language"><strong>Linguaggio originale:</strong> <span><img class="language-img" :src=" 'https://flagcdn.com/32x24/' + tv.original_language + '.png'" :alt="tv.original_language"></span></p></li>
                   <li class="box__rate"><strong>Voto:</strong> <span v-for="i in tv.vote_average"><i class="fas fa-star rate-star"></i></span><span v-for="i in (5 - tv.vote_average)"><i class="far fa-star rate-star"></i></span></li>
                   <li v-if="tv.overview"><p class="box__overview"><strong>Overview:</strong> {{tv.overview}}</p></li>
                 </ul>
