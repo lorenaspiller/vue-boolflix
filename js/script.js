@@ -40,12 +40,14 @@ var app = new Vue({
     movies: [],
     tvSeries: [],
     moviesAndTv: [],
+    filteredRate: [],
     myApiKey: "3124987f708e83e904b51eb8a20737a0",
     apiLanguage: [ {italian: "it-IT"}, {english: "en-EN"}],
     baseUrl: "https://api.themoviedb.org/3/search/",
   },
   methods: {
     moviesSearch: function() {
+      this.filteredRate= [];
       axios.all([
         axios.get(this.baseUrl + 'movie', {
           params: {
@@ -72,6 +74,7 @@ var app = new Vue({
         this.moviesAndTv = [...this.movies, ...this.tvSeries];
         this.movieRate(this.movies);
         this.movieRate(this.tvSeries);
+        this.filterRate(this.moviesAndTv, this.filteredRate);
       })
       .catch(e => {
         console.log("oh, no! There's an error: " + e);
@@ -84,6 +87,13 @@ var app = new Vue({
         let vote = Math.ceil(voteRound);
         item.vote_average = vote;
         console.log(item.vote_average);
+      });
+    },
+    filterRate: function(mergedArray, newArray) {
+      mergedArray.forEach((item, i) => {
+        if (item.vote_average > 3) {
+          newArray.push(item);
+        }
       });
     }
   }
