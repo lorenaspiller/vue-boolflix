@@ -194,6 +194,11 @@ main {
   margin-bottom: 10px;
 }
 
+.box__info .language-img {
+  width: 30px;
+  height: auto;
+}
+
 .box__info img.language-img,
 .box__language {
   vertical-align: middle;
