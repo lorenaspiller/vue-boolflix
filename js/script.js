@@ -72,12 +72,13 @@ var app = new Vue({
       .then((response) => {
         this.movies = response[0].data.results;
         this.tvSeries = response[1].data.results;
-        this.moviesAndTv = [...this.movies, ...this.tvSeries];
         this.movieRate(this.movies);
         this.movieRate(this.tvSeries);
-        this.filterRate(this.moviesAndTv, this.filteredRate);
-        this.putGenre(this.movies, this.genreString[0]);
-        this.putGenre(this.tvSeries, this.genreString[1]);
+        this.filterRate(this.movies, this.filteredRate);
+        this.filterRate(this.tvSeries, this.filteredRate);
+        this.putGenre(this.movies, this.moviesAndTv, this.genreString[0]);
+        this.putGenre(this.tvSeries, this.moviesAndTv, this.genreString[1]);
+        console.log(this.moviesAndTv);
       })
       .catch(e => {
         console.log("oh, no! There's an error: " + e);
@@ -94,15 +95,15 @@ var app = new Vue({
     },
     filterRate: function(mergedArray, newArray) {
       mergedArray.forEach((item, i) => {
-        if (item.vote_average > 4) {
+        if (item.vote_average >= 4) {
           newArray.push(item);
         }
       });
     },
-    putGenre: function(array, genre) {
+    putGenre: function(array, array2, genre) {
       array.forEach((item, i) => {
         item['type'] = genre;
-        array.push(item);
+        array2.push(item);
       });
     }
   }
